@@ -1,0 +1,14 @@
+<svg width="900" height="620" viewBox="0 0 900 620" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="900" height="620" rx="28" fill="#E85B2B"/>
+  <rect x="86" y="94" width="728" height="430" rx="26" fill="#101214"/>
+  <rect x="142" y="148" width="252" height="96" rx="20" fill="#F2EEE6"/>
+  <text x="268" y="206" fill="#101214" font-family="Arial, sans-serif" font-size="34" font-weight="700" text-anchor="middle">Race Week</text>
+  <rect x="142" y="292" width="212" height="28" rx="14" fill="#DDE6E8"/>
+  <rect x="142" y="340" width="244" height="28" rx="14" fill="#DDE6E8" opacity="0.86"/>
+  <rect x="142" y="388" width="188" height="28" rx="14" fill="#DDE6E8" opacity="0.72"/>
+  <circle cx="632" cy="240" r="68" fill="#F2EEE6"/>
+  <path d="M632 202V242L664 264" stroke="#101214" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="632" cy="240" r="10" fill="#101214"/>
+  <rect x="520" y="372" width="226" height="88" rx="44" fill="#F2EEE6"/>
+  <text x="633" y="425" fill="#101214" font-family="Arial, sans-serif" font-size="30" font-weight="700" text-anchor="middle">Checklist Ready</text>
+</svg>
