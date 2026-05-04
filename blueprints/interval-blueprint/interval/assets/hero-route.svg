@@ -1,0 +1,30 @@
+<svg width="1200" height="900" viewBox="0 0 1200 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="900" rx="32" fill="#101214"/>
+  <g opacity="0.16" stroke="#F2EEE6">
+    <path d="M90 120H1110"/>
+    <path d="M90 260H1110"/>
+    <path d="M90 400H1110"/>
+    <path d="M90 540H1110"/>
+    <path d="M90 680H1110"/>
+    <path d="M220 80V820"/>
+    <path d="M480 80V820"/>
+    <path d="M740 80V820"/>
+    <path d="M980 80V820"/>
+  </g>
+  <path d="M178 641C257 617 338 592 416 517C473 463 494 384 567 328C650 264 751 282 835 229C908 182 954 118 1024 122" stroke="#E85B2B" stroke-width="22" stroke-linecap="round"/>
+  <path d="M212 511C283 509 344 493 401 456C480 404 516 314 618 286C676 270 741 280 799 255C871 224 922 168 976 116" stroke="#DDE6E8" stroke-width="8" stroke-linecap="round" stroke-dasharray="10 18"/>
+  <circle cx="178" cy="641" r="22" fill="#E85B2B"/>
+  <circle cx="416" cy="517" r="22" fill="#E85B2B"/>
+  <circle cx="567" cy="328" r="22" fill="#E85B2B"/>
+  <circle cx="835" cy="229" r="22" fill="#E85B2B"/>
+  <circle cx="1024" cy="122" r="22" fill="#E85B2B"/>
+  <rect x="140" y="122" width="180" height="70" rx="35" fill="#F2EEE6"/>
+  <text x="230" y="166" fill="#101214" font-family="Arial, sans-serif" font-size="28" font-weight="700" text-anchor="middle">05:48</text>
+  <rect x="820" y="690" width="220" height="76" rx="38" fill="#DDE6E8"/>
+  <text x="930" y="736" fill="#101214" font-family="Arial, sans-serif" font-size="28" font-weight="700" text-anchor="middle">Race Week</text>
+  <g transform="translate(846 430)">
+    <circle cx="50" cy="50" r="50" fill="#F2EEE6"/>
+    <path d="M55 24C46 24 39 31 39 40C39 48 45 55 55 55C64 55 71 48 71 40C71 31 64 24 55 24Z" fill="#101214"/>
+    <path d="M28 80L46 58L63 67L79 49L90 58L73 86H54L44 120H28L36 92L18 109L8 97L28 80Z" fill="#101214"/>
+  </g>
+</svg>
