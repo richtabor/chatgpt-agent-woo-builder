@@ -1,0 +1,12 @@
+<svg width="900" height="620" viewBox="0 0 900 620" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="900" height="620" rx="28" fill="#101214"/>
+  <path d="M118 480L286 208L430 346L580 140L782 480" stroke="#E85B2B" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="286" cy="208" r="22" fill="#F2EEE6"/>
+  <circle cx="430" cy="346" r="22" fill="#F2EEE6"/>
+  <circle cx="580" cy="140" r="22" fill="#F2EEE6"/>
+  <rect x="122" y="116" width="238" height="74" rx="37" fill="#F2EEE6"/>
+  <text x="241" y="160" fill="#101214" font-family="Arial, sans-serif" font-size="30" font-weight="700" text-anchor="middle">Track Night</text>
+  <rect x="604" y="384" width="138" height="138" rx="24" fill="#DDE6E8"/>
+  <path d="M674 418V488" stroke="#101214" stroke-width="14" stroke-linecap="round"/>
+  <path d="M638 454H710" stroke="#101214" stroke-width="14" stroke-linecap="round"/>
+</svg>
