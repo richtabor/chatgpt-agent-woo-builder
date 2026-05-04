@@ -44,6 +44,46 @@
         {
             "step": "runPHP",
             "code": "<?php require_once '/wordpress/wp-load.php'; $home_id = wp_insert_post(array('post_title' => 'Home', 'post_status' => 'publish', 'post_type' => 'page', 'post_content' => '', 'post_name' => 'home')); if ( ! is_wp_error($home_id) && $home_id ) { update_option('show_on_front', 'page'); update_option('page_on_front', (int) $home_id); update_post_meta((int) $home_id, '_wp_page_template', 'front-page'); echo 'Home page configured: ' . $home_id; } else { echo 'Home page error'; }"
+        },
+        {
+            "step": "wp-cli",
+            "command": "wp option update blogname 'Interval'"
+        },
+        {
+            "step": "wp-cli",
+            "command": "wp option update blogdescription 'Made for the 5:47 AM start.'"
+        },
+        {
+            "step": "wp-cli",
+            "command": "wp option update woocommerce_store_address '500 Greenpoint Ave'"
+        },
+        {
+            "step": "wp-cli",
+            "command": "wp option update woocommerce_store_city 'Brooklyn'"
+        },
+        {
+            "step": "wp-cli",
+            "command": "wp option update woocommerce_default_country 'US:NY'"
+        },
+        {
+            "step": "wp-cli",
+            "command": "wp option update woocommerce_currency 'USD'"
+        },
+        {
+            "step": "writeFile",
+            "path": "/wordpress/wp-content/uploads/products.csv",
+            "data": {
+                "resource": "url",
+                "url": "https://raw.githubusercontent.com/richtabor/chatgpt-agent-woo-builder/store/interval/blueprints/interval/products.csv"
+            }
+        },
+        {
+            "step": "runPHP",
+            "code": "<?php require_once '/wordpress/wp-load.php'; if ( ! class_exists('WC_Product_Simple') ) { echo 'WC missing'; return; } $csv_path = '/wordpress/wp-content/uploads/products.csv'; if ( ! file_exists($csv_path) ) { echo 'CSV missing'; return; } $rows = array(); if ( ($fh = fopen($csv_path, 'r')) !== false ) { $hdr = fgetcsv($fh); while ( ($row = fgetcsv($fh)) !== false ) { if ( count($row) !== count($hdr) ) continue; $rows[] = array_combine($hdr, $row); } fclose($fh); } $created = 0; $skipped = 0; foreach ( $rows as $r ) { if ( empty($r['SKU']) || empty($r['Name']) ) continue; if ( wc_get_product_id_by_sku($r['SKU']) ) { $skipped++; continue; } $type = ! empty($r['Type']) ? $r['Type'] : 'simple'; $product = new WC_Product_Simple(); $product->set_name($r['Name']); $product->set_sku($r['SKU']); $product->set_status('publish'); $product->set_catalog_visibility(! empty($r['Visibility in catalog']) ? $r['Visibility in catalog'] : 'visible'); $product->set_description(! empty($r['Description']) ? $r['Description'] : ''); $product->set_short_description(! empty($r['Short description']) ? $r['Short description'] : ''); if ( isset($r['Regular price']) && $r['Regular price'] !== '' ) $product->set_regular_price((string) $r['Regular price']); if ( isset($r['Sale price']) && $r['Sale price'] !== '' ) $product->set_sale_price((string) $r['Sale price']); $product->set_manage_stock(false); $product->set_stock_status(! empty($r['In stock?']) && $r['In stock?'] !== '0' ? 'instock' : 'instock'); $product->set_featured(! empty($r['Is featured?']) && (string) $r['Is featured?'] === '1'); if ( ! empty($r['Weight (kg)']) ) $product->set_weight((string) $r['Weight (kg)']); $cat_ids = array(); if ( ! empty($r['Categories']) ) { $cats = array_map('trim', explode(',', $r['Categories'])); foreach ( $cats as $c ) { if ( $c === '' ) continue; $segments = array_map('trim', explode('>', $c)); $parent = 0; $cid = 0; foreach ( $segments as $seg ) { $term = get_term_by('name', $seg, 'product_cat'); if ( $term ) { $cid = (int) $term->term_id; } else { $new = wp_insert_term($seg, 'product_cat', array('parent' => $parent)); if ( ! is_wp_error($new) ) $cid = (int) $new['term_id']; } $parent = $cid; } if ( $cid ) $cat_ids[] = $cid; } } if ( $cat_ids ) $product->set_category_ids(array_values(array_unique($cat_ids))); $tag_ids = array(); if ( ! empty($r['Tags']) ) { foreach ( array_map('trim', explode(',', $r['Tags'])) as $t ) { if ( $t === '' ) continue; $term = get_term_by('name', $t, 'product_tag'); if ( $term ) { $tag_ids[] = (int) $term->term_id; } else { $new = wp_insert_term($t, 'product_tag'); if ( ! is_wp_error($new) ) $tag_ids[] = (int) $new['term_id']; } } } if ( $tag_ids ) $product->set_tag_ids($tag_ids); $attrs = array(); for ( $i = 1; $i <= 3; $i++ ) { $name_key = 'Attribute ' . $i . ' name'; $val_key = 'Attribute ' . $i . ' value(s)'; if ( empty($r[$name_key]) || empty($r[$val_key]) ) continue; $a = new WC_Product_Attribute(); $a->set_name($r[$name_key]); $vals = array_map('trim', explode('|', $r[$val_key])); $a->set_options($vals); $a->set_visible(true); $a->set_variation(false); $attrs[] = $a; } if ( $attrs ) $product->set_attributes($attrs); $pid = $product->save(); if ( $pid ) $created++; } echo 'Products import: created=' . $created . ' skipped=' . $skipped;"
+        },
+        {
+            "step": "runPHP",
+            "code": "<?php require_once '/wordpress/wp-load.php'; if ( function_exists('update_option') ) { update_option('woocommerce_shop_page_id', 0); update_option('permalink_structure', '/%postname%/'); flush_rewrite_rules(false); $shop_page = get_page_by_path('shop'); if ( ! $shop_page ) { $sid = wp_insert_post(array('post_title' => 'Shop', 'post_status' => 'publish', 'post_type' => 'page', 'post_content' => '<!-- wp:woocommerce/store-notices /--><!-- wp:woocommerce/product-collection --><!-- /wp:woocommerce/product-collection -->', 'post_name' => 'shop')); if ( ! is_wp_error($sid) ) update_option('woocommerce_shop_page_id', (int) $sid); } else { update_option('woocommerce_shop_page_id', (int) $shop_page->ID); } echo 'Shop page wired'; }"
         }
     ]
 }
