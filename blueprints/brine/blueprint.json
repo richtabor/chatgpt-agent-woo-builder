@@ -1,1 +1,140 @@
-FROM_FILE:blueprints/brine/blueprint.json
+{
+  "$schema": "https://playground.wordpress.net/blueprint-schema.json",
+  "meta": {
+    "title": "Brine — Live pantry, slowly made",
+    "description": "A fermentation-first WooCommerce store built around starter rituals, pantry depth, and giftable live-flavor systems.",
+    "author": "Woo Designer (Store Builder)",
+    "categories": ["Website", "WooCommerce"]
+  },
+  "landingPage": "/",
+  "login": true,
+  "features": {
+    "networking": true
+  },
+  "extraLibraries": ["wp-cli"],
+  "steps": [
+    {
+      "step": "defineWpConfigConsts",
+      "consts": {
+        "WP_DEVELOPMENT_MODE": "theme"
+      }
+    },
+    {
+      "step": "resetData"
+    },
+    {
+      "step": "installPlugin",
+      "pluginData": {
+        "resource": "wordpress.org/plugins",
+        "slug": "woocommerce"
+      },
+      "options": {
+        "activate": true
+      }
+    },
+    {
+      "step": "installTheme",
+      "themeData": {
+        "resource": "git:directory",
+        "url": "https://github.com/richtabor/chatgpt-agent-woo-builder",
+        "ref": "main",
+        "refType": "branch",
+        "path": "blueprints/assembler-blueprint/assembler"
+      },
+      "options": {
+        "activate": true,
+        "targetFolderName": "brine"
+      }
+    },
+    {
+      "step": "writeFile",
+      "path": "/wordpress/wp-content/themes/brine/style.css",
+      "data": "/*\nTheme Name: Brine\nTheme URI: https://github.com/richtabor/chatgpt-agent-woo-builder\nAuthor: Brine\nAuthor URI: https://example.com/brine\nDescription: A fermentation-first WooCommerce theme built around starter rituals, pantry depth, and giftable live-flavor systems. Editorial serif headlines on a warm rice-paper surface, with deep-cellar dark sections for subscription and editorial moments.\nVersion: 1.0.0\nRequires at least: 6.4\nTested up to: 6.6\nRequires PHP: 7.4\nLicense: GPL v2 or later\nLicense URI: http://www.gnu.org/licenses/gpl-2.0.html\nText Domain: brine\nTags: full-site-editing, block-patterns, woocommerce\n*/\n"
+    },
+    {
+      "step": "writeFile",
+      "path": "/wordpress/wp-content/themes/brine/theme.json",
+      "data": {
+        "resource": "url",
+        "url": "https://raw.githubusercontent.com/richtabor/chatgpt-agent-woo-builder/store/brine/theme.json"
+      }
+    },
+    {
+      "step": "writeFile",
+      "path": "/wordpress/wp-content/themes/brine/templates/home.html",
+      "data": {
+        "resource": "url",
+        "url": "https://raw.githubusercontent.com/richtabor/chatgpt-agent-woo-builder/store/brine/templates/home.html"
+      }
+    },
+    {
+      "step": "writeFile",
+      "path": "/wordpress/wp-content/themes/brine/templates/index.html",
+      "data": {
+        "resource": "url",
+        "url": "https://raw.githubusercontent.com/richtabor/chatgpt-agent-woo-builder/store/brine/templates/home.html"
+      }
+    },
+    {
+      "step": "writeFile",
+      "path": "/wordpress/wp-content/themes/brine/parts/header.html",
+      "data": {
+        "resource": "url",
+        "url": "https://raw.githubusercontent.com/richtabor/chatgpt-agent-woo-builder/store/brine/parts/header.html"
+      }
+    },
+    {
+      "step": "writeFile",
+      "path": "/wordpress/wp-content/themes/brine/parts/footer.html",
+      "data": {
+        "resource": "url",
+        "url": "https://raw.githubusercontent.com/richtabor/chatgpt-agent-woo-builder/store/brine/parts/footer.html"
+      }
+    },
+    {
+      "step": "setSiteOptions",
+      "options": {
+        "blogname": "Brine",
+        "blogdescription": "Live pantry, slowly made.",
+        "show_on_front": "posts",
+        "permalink_structure": "/%postname%/",
+        "woocommerce_store_address": "127 Cellar Lane",
+        "woocommerce_store_city": "Hudson",
+        "woocommerce_default_country": "US:NY",
+        "woocommerce_store_postcode": "12534",
+        "woocommerce_currency": "USD",
+        "woocommerce_currency_pos": "left",
+        "woocommerce_price_thousand_sep": ",",
+        "woocommerce_price_decimal_sep": ".",
+        "woocommerce_price_num_decimals": "2",
+        "woocommerce_weight_unit": "kg",
+        "woocommerce_dimension_unit": "cm",
+        "woocommerce_calc_taxes": "no",
+        "woocommerce_enable_coupons": "no",
+        "woocommerce_enable_guest_checkout": "yes",
+        "woocommerce_admin_notices": []
+      }
+    },
+    {
+      "step": "writeFile",
+      "path": "/wordpress/wp-content/uploads/brine-products.csv",
+      "data": {
+        "resource": "url",
+        "url": "https://raw.githubusercontent.com/richtabor/chatgpt-agent-woo-builder/store/brine/products.csv"
+      }
+    },
+    {
+      "step": "writeFile",
+      "path": "/wordpress/wp-content/uploads/brine-import-products.php",
+      "data": "<?php\n// Brine product importer — runs WC's built-in CSV importer against /wp-content/uploads/brine-products.csv.\n\nif ( ! defined( 'ABSPATH' ) ) {\n    require_once '/wordpress/wp-load.php';\n}\n\nif ( ! class_exists( 'WC_Product_CSV_Importer' ) ) {\n    $importer_path = WP_PLUGIN_DIR . '/woocommerce/includes/import/class-wc-product-csv-importer.php';\n    if ( file_exists( $importer_path ) ) {\n        require_once WP_PLUGIN_DIR . '/woocommerce/includes/abstracts/abstract-wc-product-importer.php';\n        require_once $importer_path;\n    } else {\n        echo 'WooCommerce CSV importer class not found' . PHP_EOL;\n        exit( 1 );\n    }\n}\n\n$csv_file = '/wordpress/wp-content/uploads/brine-products.csv';\n\nif ( ! file_exists( $csv_file ) ) {\n    echo 'Brine CSV not found at ' . $csv_file . PHP_EOL;\n    exit( 1 );\n}\n\n$mapping = array(\n    'ID'                => 'id',\n    'Type'              => 'type',\n    'SKU'               => 'sku',\n    'Name'              => 'name',\n    'Published'         => 'published',\n    'Description'       => 'description',\n    'Short description' => 'short_description',\n    'Regular price'     => 'regular_price',\n    'Categories'        => 'category_ids',\n    'Images'            => 'images',\n);\n\n$params = array(\n    'parse'             => true,\n    'update_existing'   => false,\n    'delimiter'         => ',',\n    'prevent_timeouts'  => false,\n    'mapping'           => $mapping,\n    'lines'             => -1,\n    'start_pos'         => 0,\n    'end_pos'           => -1,\n);\n\n$importer = new WC_Product_CSV_Importer( $csv_file, $params );\n$results  = $importer->import();\n\n$imported = isset( $results['imported'] ) ? count( $results['imported'] ) : 0;\n$failed   = isset( $results['failed'] ) ? count( $results['failed'] ) : 0;\n$updated  = isset( $results['updated'] ) ? count( $results['updated'] ) : 0;\n$skipped  = isset( $results['skipped'] ) ? count( $results['skipped'] ) : 0;\n\necho sprintf(\n    'Brine import complete: imported=%d updated=%d skipped=%d failed=%d',\n    $imported,\n    $updated,\n    $skipped,\n    $failed\n) . PHP_EOL;\n\nif ( $failed > 0 ) {\n    foreach ( $results['failed'] as $failure ) {\n        if ( is_wp_error( $failure ) ) {\n            echo 'Failure: ' . $failure->get_error_message() . PHP_EOL;\n        }\n    }\n}\n"
+    },
+    {
+      "step": "wp-cli",
+      "command": "wp eval-file /wordpress/wp-content/uploads/brine-import-products.php"
+    },
+    {
+      "step": "runPHP",
+      "code": "<?php require_once '/wordpress/wp-load.php'; if ( class_exists( 'WC_Install' ) ) { WC_Install::create_pages(); } delete_option( 'rewrite_rules' ); flush_rewrite_rules( false ); $product_count = (int) wp_count_posts( 'product' )->publish; echo 'Brine setup complete. Published products: ' . $product_count;"
+    }
+  ]
+}
