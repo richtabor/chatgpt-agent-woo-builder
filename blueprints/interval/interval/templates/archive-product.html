@@ -1,0 +1,42 @@
+<!-- wp:template-part {"slug":"utility-bar","tagName":"div"} /-->
+
+<!-- wp:template-part {"slug":"header"} /-->
+
+<!-- wp:group {"tagName":"main","metadata":{"name":"Main"},"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|70","left":"var:preset|spacing|40","right":"var:preset|spacing|40"},"blockGap":"var:preset|spacing|40"}},"layout":{"type":"constrained"}} -->
+<main class="wp-block-group alignfull" style="padding-top:var(--wp--preset--spacing--50);padding-right:var(--wp--preset--spacing--40);padding-bottom:var(--wp--preset--spacing--70);padding-left:var(--wp--preset--spacing--40)">
+
+<!-- wp:group {"align":"wide","style":{"spacing":{"blockGap":"var:preset|spacing|20","padding":{"bottom":"var:preset|spacing|20"}},"border":{"bottom":{"color":"var:preset|color|mist-line","width":"1px"}}},"layout":{"type":"flex","flexWrap":"wrap","justifyContent":"space-between","verticalAlignment":"bottom"}} -->
+<div class="wp-block-group alignwide" style="border-bottom-color:var(--wp--preset--color--mist-line);border-bottom-width:1px;padding-bottom:var(--wp--preset--spacing--20)">
+<!-- wp:group {"style":{"spacing":{"blockGap":"6px"}},"layout":{"type":"flex","orientation":"vertical","flexWrap":"nowrap"}} -->
+<div class="wp-block-group">
+<!-- wp:paragraph {"style":{"typography":{"fontSize":"11px","fontWeight":"700","letterSpacing":"0.18em","textTransform":"uppercase"},"color":{"text":"#E85B2B"},"spacing":{"margin":{"top":"0","bottom":"0"}}}} -->
+<p class="has-text-color" style="color:#E85B2B;margin-top:0;margin-bottom:0;font-size:11px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase">Catalogue</p>
+<!-- /wp:paragraph -->
+<!-- wp:woocommerce/store-title {"fontSize":"x-large","style":{"typography":{"fontWeight":"800","letterSpacing":"-0.02em","lineHeight":"1"},"spacing":{"margin":{"top":"0","bottom":"0"}}}} /-->
+</div>
+<!-- /wp:group -->
+<!-- wp:woocommerce/catalog-sorting /-->
+</div>
+<!-- /wp:group -->
+
+<!-- wp:woocommerce/product-collection {"queryId":0,"query":{"perPage":12,"pages":0,"offset":0,"postType":"product","order":"asc","orderBy":"title","search":"","exclude":[],"sticky":"","inherit":true,"taxQuery":{},"isProductCollectionBlock":true,"woocommerceOnSale":false,"woocommerceStockStatus":["instock","outofstock","onbackorder"],"woocommerceAttributes":[],"woocommerceHandPickedProducts":[]},"tagName":"div","displayLayout":{"type":"flex","columns":3,"shrinkColumns":true},"queryContextIncludes":["collection"],"align":"wide"} -->
+<div class="wp-block-woocommerce-product-collection alignwide">
+<!-- wp:woocommerce/product-template -->
+<!-- wp:group {"style":{"border":{"width":"1px","color":"var:preset|color|mist-line"},"spacing":{"padding":{"top":"var:preset|spacing|30","bottom":"var:preset|spacing|30","left":"var:preset|spacing|30","right":"var:preset|spacing|30"},"blockGap":"var:preset|spacing|20"},"color":{"background":"#FFFFFF"}},"className":"product-card","layout":{"type":"flex","orientation":"vertical","flexWrap":"nowrap"}} -->
+<div class="wp-block-group product-card has-background" style="border-color:var(--wp--preset--color--mist-line);border-width:1px;background-color:#FFFFFF;padding-top:var(--wp--preset--spacing--30);padding-right:var(--wp--preset--spacing--30);padding-bottom:var(--wp--preset--spacing--30);padding-left:var(--wp--preset--spacing--30)">
+<!-- wp:post-terms {"term":"product_cat","style":{"typography":{"fontSize":"10px","fontWeight":"700","letterSpacing":"0.18em","textTransform":"uppercase"}} /-->
+<!-- wp:post-title {"isLink":true,"style":{"typography":{"fontFamily":"Archivo, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, sans-serif","fontSize":"22px","fontWeight":"800","letterSpacing":"-0.02em","lineHeight":"1.05"}} /-->
+<!-- wp:woocommerce/product-price {"style":{"typography":{"fontFamily":"Archivo, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, sans-serif","fontSize":"16px","fontWeight":"700"}}} /-->
+<!-- wp:woocommerce/product-button {"textAlign":"center","fontSize":"small","style":{"border":{"radius":"9999px"}}} /-->
+</div>
+<!-- /wp:group -->
+<!-- /wp:woocommerce/product-template -->
+
+<!-- wp:query-pagination-numbers {"layout":{"type":"flex","justifyContent":"center"}} /-->
+</div>
+<!-- /wp:woocommerce/product-collection -->
+
+</main>
+<!-- /wp:group -->
+
+<!-- wp:template-part {"slug":"footer"} /-->
