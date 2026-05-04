@@ -1,0 +1,34 @@
+name: product-grid-new-arrivals
+title: New Arrivals Product Grid
+slug: assembler/product-grid-new-arrivals
+collection: minimal
+categories: [products]
+description: >
+  Four-column dynamic product collection with a compact section heading,
+  portrait product imagery, and inline title and price treatment for recent
+  inventory.
+
+density: medium
+content_fit:
+  headline: short
+  body: none
+  image: none
+
+good_for:
+  - products-grid
+  - new-arrivals
+  - multi-product-catalog
+  - inventory-refresh-section
+
+avoid_for:
+  - single-product-stores
+  - small-catalog-sites
+  - stores-with-few-recent-products
+  - evergreen-category-navigation
+
+slots:
+  heading:
+    type: text
+    required: false
+    max_length: 28
+    notes: Compact section heading above the dynamic new arrivals grid.

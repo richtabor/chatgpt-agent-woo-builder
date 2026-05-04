@@ -1,0 +1,62 @@
+name: intro-alternating-image-text
+title: Alternating Image Intro
+slug: assembler/intro-alternating-image-text
+collection: minimal
+categories: [featured, text]
+description: >
+  Two alternating split rows pairing concise centered intro copy with square
+  image slots.
+
+density: medium
+content_fit:
+  headline: short
+  body: short
+  image: required
+
+good_for:
+  - intro
+  - brand-introduction
+  - story-section
+  - homepage-context
+
+avoid_for:
+  - long-form-storytelling
+  - image-free-introductions
+  - dense-product-navigation
+
+slots:
+  heading_1:
+    type: text
+    required: true
+    max_length: 32
+    notes: Centered heading in the first text column.
+
+  body_1:
+    type: richtext
+    required: true
+    max_length: 180
+    notes: Short centered supporting copy below the first heading.
+
+  image_1:
+    type: image
+    required: true
+    aspect_ratio: 1/1
+    notes: Square image opposite the first intro text column.
+
+  image_2:
+    type: image
+    required: true
+    aspect_ratio: 1/1
+    notes: Square image leading the second alternating row.
+
+  heading_2:
+    type: text
+    required: true
+    max_length: 32
+    notes: Centered heading in the second text column.
+
+  body_2:
+    type: richtext
+    required: true
+    max_length: 180
+    notes: Short centered supporting copy below the second heading.

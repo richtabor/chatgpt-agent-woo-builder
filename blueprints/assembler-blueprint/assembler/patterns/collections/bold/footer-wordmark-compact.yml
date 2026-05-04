@@ -1,0 +1,38 @@
+name: footer-wordmark-compact
+title: Footer Simple Wordmark
+slug: assembler/footer-wordmark-compact
+collection: bold
+categories: [footer, woo-commerce]
+description: >
+  Simple full-width footer with an oversized uppercase wordmark, a small
+  credit line, and a single policy link set against the bold section style.
+
+density: low
+content_fit:
+  headline: short
+  body: short
+  image: none
+
+good_for:
+  - footer
+  - brand-led-footer
+  - bold-commerce-storefront
+  - compact-site-meta
+
+avoid_for:
+  - link-heavy-footers
+  - stores-with-multiple-footer-menus
+  - text-heavy-site-meta
+
+slots:
+  wordmark:
+    type: text
+    required: true
+    max_length: 12
+    notes: Oversized uppercase brand wordmark. Single-word names work best.
+
+  credit:
+    type: richtext
+    required: false
+    max_length: 180
+    notes: Small copyright and platform credit line plus one policy link beneath the wordmark.

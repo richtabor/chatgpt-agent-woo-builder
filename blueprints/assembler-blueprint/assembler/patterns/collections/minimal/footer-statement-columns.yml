@@ -1,0 +1,74 @@
+name: footer-statement-columns
+title: Footer Statement Columns
+slug: assembler/footer-statement-columns
+collection: minimal
+categories: [footer]
+description: >
+  Minimal footer with a left statement, credit line, and two compact
+  navigation columns.
+
+density: low
+content_fit:
+  headline: medium
+  body: short
+  image: none
+
+good_for:
+  - footer
+  - minimal-navigation-footer
+  - brand-statement-footer
+  - small-catalog-navigation
+
+avoid_for:
+  - dense-footer-sitemaps
+  - image-led-footers
+  - sites-with-many-legal-links
+
+slots:
+  statement:
+    type: text
+    required: true
+    max_length: 96
+    notes: Left-column statement heading that anchors the footer.
+
+  credit:
+    type: richtext
+    required: false
+    max_length: 140
+    notes: Small copyright and platform credit line below the statement.
+
+  nav_link_1:
+    type: richtext
+    required: true
+    max_length: 32
+    notes: First navigation link in the first footer link column.
+
+  nav_link_2:
+    type: richtext
+    required: true
+    max_length: 32
+    notes: Second navigation link in the first footer link column.
+
+  nav_link_3:
+    type: richtext
+    required: true
+    max_length: 32
+    notes: Third navigation link in the first footer link column.
+
+  nav_link_4:
+    type: richtext
+    required: true
+    max_length: 32
+    notes: First navigation link in the second footer link column.
+
+  nav_link_5:
+    type: richtext
+    required: true
+    max_length: 32
+    notes: Second navigation link in the second footer link column.
+
+  nav_link_6:
+    type: richtext
+    required: true
+    max_length: 32
+    notes: Third navigation link in the second footer link column.

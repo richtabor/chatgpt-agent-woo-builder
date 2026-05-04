@@ -1,0 +1,44 @@
+name: hero-split-statement
+title: Split Statement Hero
+slug: assembler/hero-split-statement
+collection: minimal
+categories: [featured, hero, call-to-action]
+description: >
+  Full-height hero with an oversized statement in a wide column and compact
+  supporting copy with a CTA in the opposite corner.
+
+density: medium
+content_fit:
+  headline: short
+  body: medium
+  image: none
+
+good_for:
+  - homepage-hero
+  - brand-statement
+  - campaign-lead-in
+  - minimal-call-to-action
+
+avoid_for:
+  - image-led-heroes
+  - long-form-introductions
+  - dense-category-navigation
+
+slots:
+  heading:
+    type: text
+    required: true
+    max_length: 28
+    notes: Oversized uppercase statement in the upper-left wide column. Short phrases work best.
+
+  note:
+    type: richtext
+    required: false
+    max_length: 180
+    notes: Compact supporting copy in the lower-right narrow column.
+
+  cta:
+    type: button
+    required: false
+    max_length: 24
+    notes: Button label and URL below the note in the lower-right column.

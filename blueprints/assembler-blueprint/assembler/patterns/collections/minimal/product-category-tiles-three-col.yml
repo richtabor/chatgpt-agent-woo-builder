@@ -1,0 +1,58 @@
+name: product-category-tiles-three-col
+slug: assembler/product-category-tiles-three-col
+collection: minimal
+categories: [featured, products]
+description: >
+  Three-column grid of category tiles with background images and centered
+  shop CTAs. Equal weight, balanced rhythm — restrained category navigation
+  for browse-led shoppers.
+
+density: medium
+content_fit:
+  headline: none
+  body: none
+  image: required
+
+good_for:
+  - category-navigation
+  - small-catalog-discovery
+  - browse-led-homepage
+
+avoid_for:
+  - text-heavy-sections
+  - single-product-focus
+  - sites-with-fewer-than-three-categories
+
+slots:
+  image_1:
+    type: image
+    required: true
+    aspect_ratio: 3/4
+    notes: First (left) category tile background.
+  cta_1:
+    type: text
+    required: true
+    max_length: 24
+    notes: First category CTA label.
+
+  image_2:
+    type: image
+    required: true
+    aspect_ratio: 3/4
+    notes: Second (center) category tile background.
+  cta_2:
+    type: text
+    required: true
+    max_length: 24
+    notes: Second category CTA label.
+
+  image_3:
+    type: image
+    required: true
+    aspect_ratio: 3/4
+    notes: Third (right) category tile background.
+  cta_3:
+    type: text
+    required: true
+    max_length: 24
+    notes: Third category CTA label.

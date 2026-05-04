@@ -1,0 +1,50 @@
+name: header-wordmark
+title: Header Wordmark
+slug: assembler/header-wordmark
+collection: bold
+categories: [header, woo-commerce]
+description: >
+  Bold header with the site tagline, compact navigation, and oversized
+  uppercase wordmark below the utility row.
+
+density: low
+content_fit:
+  headline: short
+  body: short
+  image: none
+
+good_for:
+  - header
+  - brand-led-header
+  - bold-commerce-storefront
+  - compact-primary-navigation
+
+avoid_for:
+  - navigation-heavy-stores
+  - stores-with-long-brand-names
+  - text-heavy-header-messaging
+
+slots:
+  wordmark:
+    type: text
+    required: true
+    max_length: 16
+    notes: Oversized uppercase store wordmark beneath the navigation row.
+
+  nav_link_1:
+    type: richtext
+    required: true
+    max_length: 24
+    notes: First compact navigation link in the utility row beside the site tagline.
+
+  nav_link_2:
+    type: richtext
+    required: true
+    max_length: 24
+    notes: Second compact navigation link in the utility row beside the site tagline.
+
+  nav_link_3:
+    type: richtext
+    required: true
+    max_length: 24
+    notes: Third compact navigation link in the utility row beside the site tagline.

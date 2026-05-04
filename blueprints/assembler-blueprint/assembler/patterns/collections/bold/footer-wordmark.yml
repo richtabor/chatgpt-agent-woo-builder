@@ -1,0 +1,55 @@
+name: footer-wordmark
+title: Footer Wordmark
+slug: assembler/footer-wordmark
+collection: bold
+categories: [footer, woo-commerce]
+description: >
+  Full-width commerce footer with an oversized brand wordmark, compact
+  navigation columns, and a small credit line.
+
+density: low
+content_fit:
+  headline: short
+  body: short
+  image: none
+
+good_for:
+  - brand-led-footer
+  - bold-commerce-storefront
+  - minimal-navigation-footer
+
+avoid_for:
+  - text-heavy-footers
+  - conservative-storefronts
+  - sites-with-many-footer-menus
+
+slots:
+  wordmark:
+    type: text
+    required: true
+    max_length: 12
+    notes: Oversized uppercase brand wordmark. Single-word names work best.
+
+  nav_column_1:
+    type: richtext
+    required: true
+    max_length: 96
+    notes: First compact footer navigation column with short link labels.
+
+  nav_column_2:
+    type: richtext
+    required: true
+    max_length: 96
+    notes: Second compact footer navigation column with short link labels.
+
+  nav_column_3:
+    type: richtext
+    required: true
+    max_length: 96
+    notes: Third compact footer navigation column with short link labels.
+
+  credit:
+    type: richtext
+    required: false
+    max_length: 120
+    notes: Small copyright and platform credit line.

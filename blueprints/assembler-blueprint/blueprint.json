@@ -1,0 +1,46 @@
+{
+  "$schema": "https://playground.wordpress.net/blueprint-schema.json",
+  "meta": {
+    "title": "Assembler",
+    "description": "Neutral Woo Creator starter storefront blueprint.",
+    "author": "Woo Creator",
+    "categories": [
+      "Website",
+      "WooCommerce"
+    ]
+  },
+  "landingPage": "/",
+  "login": true,
+  "steps": [
+    {
+      "step": "defineWpConfigConsts",
+      "consts": {
+        "WP_DEVELOPMENT_MODE": "theme"
+      }
+    },
+    {
+      "step": "resetData"
+    },
+    {
+      "step": "installPlugin",
+      "pluginData": {
+        "resource": "wordpress.org/plugins",
+        "slug": "woocommerce"
+      },
+      "options": {
+        "activate": true
+      }
+    },
+    {
+      "step": "importWxr",
+      "file": {
+        "resource": "bundled",
+        "path": "/content.xml"
+      }
+    },
+    {
+      "step": "runPHP",
+      "code": "<?php require_once '/wordpress/wp-load.php'; $home = get_page_by_path('home'); $journal = get_page_by_path('journal'); if ( $home ) { update_post_meta((int) $home->ID, '_wp_page_template', 'front-page'); update_option('show_on_front', 'page'); update_option('page_on_front', (int) $home->ID); } if ( $journal ) { update_option('page_for_posts', (int) $journal->ID); } if ( $home ) { echo 'Front page configured'; } else { echo 'Front page skipped'; }"
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+name: hero-wordmark
+slug: assembler/hero-wordmark
+collection: bold
+categories: [featured, hero]
+description: >
+  Full-bleed hero with oversized brand wordmark and compact supporting
+  copy split between opposite corners. Type carries the entire section.
+
+density: low
+content_fit:
+  headline: short        # wordmark — single word works best
+  body: short            # tagline + reassurance, kept terse
+  image: none
+
+good_for:
+  - brand-led-landing
+  - bold-statement
+  - editorial-product-launch
+
+avoid_for:
+  - shopping-driven-homepage
+  - text-heavy-intros
+  - sites-without-strong-wordmark
+
+slots:
+  wordmark:
+    type: text
+    required: true
+    max_length: 12
+    notes: Single word renders best. Two words possible but reduces impact. Spans across the whole page using flex text.
+
+  tagline:
+    type: text
+    required: false
+    max_length: 32
+    notes: Sits bottom-left. Short declarative statement.
+
+  reassurance:
+    type: richtext
+    required: false
+    max_length: 80
+    notes: Sits bottom-right. Allows a line break for two-line treatment.

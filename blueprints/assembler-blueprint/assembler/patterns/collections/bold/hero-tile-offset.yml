@@ -1,0 +1,62 @@
+name: hero-tile-offset
+title: Offset Tile Hero
+slug: assembler/hero-tile-offset
+collection: bold
+categories: [featured, hero, products]
+description: >
+  Bold ecommerce hero with an offset intro row, oversized uppercase
+  headline, compact supporting note, and two large category image tiles.
+
+density: medium
+content_fit:
+  headline: short
+  body: short
+  image: required
+
+good_for:
+  - homepage-hero
+  - campaign-led-homepage
+  - two-path-product-discovery
+  - category-navigation-lead-in
+
+avoid_for:
+  - text-heavy-homepage-intros
+  - image-free-landing-pages
+  - stores-with-more-than-two-primary-paths
+
+slots:
+  note:
+    type: text
+    required: false
+    max_length: 36
+    notes: Short uppercase supporting phrase opposite the headline.
+
+  heading:
+    type: text
+    required: true
+    max_length: 16
+    notes: Oversized uppercase hero headline. Keep it as short as "Shop the lineup."
+
+  image_1:
+    type: image
+    required: true
+    aspect_ratio: 4/5
+    notes: First offset category hero tile background.
+
+  cta_1:
+    type: text
+    required: true
+    max_length: 24
+    notes: First tile CTA label.
+
+  image_2:
+    type: image
+    required: true
+    aspect_ratio: 1/1
+    notes: Second category hero tile background.
+
+  cta_2:
+    type: text
+    required: true
+    max_length: 24
+    notes: Second tile CTA label.

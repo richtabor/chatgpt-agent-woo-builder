@@ -1,0 +1,46 @@
+name: hero-offset
+title: Offset Hero
+slug: assembler/hero-offset
+collection: bold
+categories: [featured, hero, products]
+description: >
+  Asymmetric hero layout with a right-offset heading row and a second
+  row that pairs a wide image column with a compact text note.
+
+density: medium
+content_fit:
+  headline: short
+  body: short
+  image: required
+
+good_for:
+  - homepage-hero
+  - campaign-led-homepage
+  - product-lineup-intro
+  - category-navigation-lead-in
+
+avoid_for:
+  - text-heavy-about-pages
+  - image-free-landing-pages
+  - conservative-storefronts
+
+slots:
+  heading:
+    type: text
+    required: true
+    max_length: 16
+    notes: Oversized uppercase hero headline. Keep about the length of "Shop the lineup"; avoid sentence headlines.
+
+  image:
+    type: image
+    required: true
+    aspect_ratio: 4/3
+    notes: Large campaign image on the left side of the second row.
+
+  note:
+    type: richtext
+    required: false
+    max_length: 120
+    preferred_instances: 1
+    max_instances: 1
+    notes: Single concise supporting paragraph on the right. Do not fill repeated placeholder paragraphs unless the user explicitly asks for multiple notes.

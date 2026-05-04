@@ -1,0 +1,68 @@
+name: product-category-tiles-offset
+slug: assembler/product-category-tiles-offset
+collection: bold
+categories: [featured, products]
+description: >
+  Staggered three-column category tile section with oversized intro type,
+  asymmetric tile heights, image-led tiles, and direct shop CTAs.
+
+density: medium
+content_fit:
+  headline: short
+  body: short
+  image: required
+
+good_for:
+  - bold-category-navigation
+  - campaign-led-homepage
+  - expressive-product-discovery
+
+avoid_for:
+  - conservative-storefronts
+  - dense-category-indexes
+  - sites-with-fewer-than-three-categories
+
+slots:
+  heading:
+    type: text
+    required: false
+    max_length: 28
+    notes: Large section headline. Short phrases work best.
+  note:
+    type: text
+    required: false
+    max_length: 36
+    notes: Short supporting phrase opposite the headline.
+
+  image_1:
+    type: image
+    required: true
+    aspect_ratio: 4/5
+    notes: First offset category tile background.
+  cta_1:
+    type: text
+    required: true
+    max_length: 24
+    notes: First category CTA label.
+
+  image_2:
+    type: image
+    required: true
+    aspect_ratio: 1/1
+    notes: Center category tile background.
+  cta_2:
+    type: text
+    required: true
+    max_length: 24
+    notes: Second category CTA label.
+
+  image_3:
+    type: image
+    required: true
+    aspect_ratio: 3/4
+    notes: Third offset category tile background.
+  cta_3:
+    type: text
+    required: true
+    max_length: 24
+    notes: Third category CTA label.

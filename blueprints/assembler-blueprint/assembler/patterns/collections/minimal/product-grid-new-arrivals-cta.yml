@@ -1,0 +1,34 @@
+name: product-grid-new-arrivals-cta
+title: New Arrivals Product Grid with Buttons
+slug: assembler/product-grid-new-arrivals-cta
+collection: minimal
+categories: [products]
+description: >
+  Three-column dynamic product collection with a centered heading, portrait
+  product imagery, inline title and price treatment, and purchase buttons for
+  recent inventory.
+
+density: medium
+content_fit:
+  headline: short
+  body: none
+  image: none
+
+good_for:
+  - products-grid
+  - new-arrivals
+  - purchase-led-homepage
+  - multi-product-catalog
+
+avoid_for:
+  - single-product-stores
+  - small-catalog-sites
+  - stores-with-fewer-than-six-recent-products
+  - editorial-product-storytelling
+
+slots:
+  heading:
+    type: text
+    required: false
+    max_length: 28
+    notes: Centered section heading above the dynamic new arrivals grid.
