@@ -1,0 +1,207 @@
+/*
+Theme Name: Interval
+Theme URI: https://github.com/richtabor/chatgpt-agent-woo-builder/tree/main/blueprints/interval/interval
+Author: Woo Designer
+Author URI: https://github.com/richtabor/chatgpt-agent-woo-builder
+Description: A bold WooCommerce store theme for urban runners — weather-aware training gear, recovery tools, and race-day kits. Built around running conditions, training rituals, and race-week needs.
+Requires at least: 6.4
+Tested up to: 6.9
+Requires PHP: 7.2
+Version: 0.1.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: interval
+Tags: blog, e-commerce, one-column, three-columns, four-columns, wide-blocks, block-patterns, custom-colors, custom-logo, custom-menu, editor-style, featured-images, full-site-editing, rtl-language-support, style-variations, template-editing, theme-options, threaded-comments, translation-ready
+*/
+
+/* Load Archivo + Inter from Google Fonts (display=swap to avoid blocking render). */
+@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;650;700;750;800&family=Inter:wght@400;500;600;700&display=swap');
+
+body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+}
+
+.has-global-padding {
+    padding-right: var(--wp--style--root--padding-right);
+    padding-left: var(--wp--style--root--padding-left);
+}
+
+/* Display sizes */
+.has-xx-large-font-size,
+.has-xxx-large-font-size {
+    line-height: 0.92;
+    letter-spacing: -0.03em;
+}
+
+/* Buttons */
+.wp-element-button,
+.wp-block-button__link {
+    transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease, transform 0.15s ease;
+}
+
+.wp-block-button.is-style-outline .wp-block-button__link {
+    background: transparent;
+    border-width: 1.5px;
+    border-color: currentColor;
+    color: currentColor;
+}
+
+.wp-block-button.is-style-outline .wp-block-button__link:hover {
+    background-color: currentColor;
+    color: var(--wp--preset--color--ink);
+}
+
+.wp-block-button.is-style-outline .wp-block-button__link:hover * {
+    color: var(--wp--preset--color--ink);
+}
+
+/* Links: subtle directional hover */
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-thickness: 1.5px;
+}
+
+.no-underline a,
+.no-underline a:hover {
+    text-decoration: none;
+}
+
+/* Pace chip — small uppercase tag */
+.pace-chip {
+    display: inline-block;
+    padding: 5px 10px;
+    border: 1px solid currentColor;
+    border-radius: 9999px;
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    line-height: 1;
+    font-family: Archivo, ui-sans-serif, system-ui, sans-serif;
+    font-weight: 650;
+}
+
+/* Hairline dividers */
+.hairline-top { border-top: 1px solid var(--wp--preset--color--mist-line); }
+.hairline-bottom { border-bottom: 1px solid var(--wp--preset--color--mist-line); }
+
+/* Product cards */
+.product-card {
+    transition: transform 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease;
+}
+
+.product-card:hover {
+    border-color: var(--wp--preset--color--ink);
+    transform: translateY(-2px);
+}
+
+/* Form inputs */
+textarea:not(.block-editor-plain-text),
+input:not([type=submit]):not([type=checkbox]):not([type=radio]):not([type=range]) {
+    background-color: var(--wp--custom--input-background);
+    border-color: currentColor;
+    border-style: solid;
+    border-radius: 9999px;
+    border-width: 1px;
+    box-shadow: none;
+    box-sizing: border-box;
+    color: currentColor;
+    font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1.4;
+    min-height: 44px;
+    padding: 0.75rem 1.25rem;
+    width: 100%;
+}
+
+textarea:focus,
+input:not([type=submit]):focus {
+    outline: 1.5px solid var(--wp--preset--color--ink);
+    outline-offset: 1px;
+}
+
+textarea::placeholder,
+input::placeholder {
+    color: color-mix(in srgb, currentColor 50%, transparent);
+}
+
+/* Footer should never have top margin */
+footer {
+    margin-top: 0 !important;
+}
+
+/* Navigation: better wrapping */
+.wp-block-navigation__container {
+    row-gap: 0;
+}
+
+/* Order utility classes (reused from Assembler) */
+.order-0 { order: 0; }
+.order-1 { order: 1; }
+.grow-0 { flex-grow: 0; }
+.grow { flex-grow: 1; }
+
+@media (min-width: 600px) {
+    .md\:order-0 { order: 0; }
+    .md\:order-1 { order: 1; }
+    .md\:grow-0 { flex-grow: 0; }
+    .md\:grow { flex-grow: 1; }
+}
+
+/* WooCommerce Catalog Sorting */
+.wc-block-catalog-sorting {
+    position: relative;
+}
+
+.wc-block-catalog-sorting > div,
+.wc-block-catalog-sorting .woocommerce-ordering {
+    align-items: center;
+    display: flex;
+    gap: 8px;
+}
+
+.wc-block-catalog-sorting select.orderby {
+    appearance: none;
+    background-color: transparent;
+    border: 1px solid color-mix(in srgb, currentColor 50%, transparent);
+    font-family: Archivo, sans-serif;
+    font-size: 12px;
+    font-weight: 650;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    border-radius: 9999px;
+    color: currentColor;
+    cursor: pointer;
+    padding: 0.6rem 2.25rem 0.6rem 1rem;
+}
+
+/* Run-club section accent */
+.has-signal-background-color a {
+    color: var(--wp--preset--color--ink);
+}
+
+/* Improve dark surfaces */
+.has-ink-background-color a,
+.has-ink-background-color a:hover {
+    color: inherit;
+}
+
+/* Ensure smooth section transitions */
+.wp-block-group.alignfull {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+/* Keep big display heads tight on small screens */
+@media (max-width: 600px) {
+    h1, h2, .has-xx-large-font-size, .has-xxx-large-font-size {
+        letter-spacing: -0.02em;
+    }
+}
