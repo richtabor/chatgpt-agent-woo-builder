@@ -1,0 +1,157 @@
+{
+  "$schema": "https://playground.wordpress.net/blueprint-schema.json",
+  "landingPage": "/",
+  "preferredVersions": {
+    "php": "8.3",
+    "wp": "latest"
+  },
+  "features": {
+    "networking": true
+  },
+  "siteOptions": {
+    "blogname": "Interval",
+    "blogdescription": "Urban run-club gear and race-day systems"
+  },
+  "steps": [
+    {
+      "step": "installPlugin",
+      "pluginZipFile": {
+        "resource": "wordpress.org/plugins",
+        "slug": "woocommerce"
+      }
+    },
+    {
+      "step": "mkdir",
+      "path": "/wordpress/wp-content/themes/interval"
+    },
+    {
+      "step": "mkdir",
+      "path": "/wordpress/wp-content/themes/interval/assets"
+    },
+    {
+      "step": "mkdir",
+      "path": "/wordpress/wp-content/themes/interval/parts"
+    },
+    {
+      "step": "mkdir",
+      "path": "/wordpress/wp-content/themes/interval/templates"
+    },
+    {
+      "step": "writeFile",
+      "path": "/wordpress/wp-content/themes/interval/style.css",
+      "data": {
+        "resource": "bundled",
+        "path": "/interval/style.css"
+      }
+    },
+    {
+      "step": "writeFile",
+      "path": "/wordpress/wp-content/themes/interval/functions.php",
+      "data": {
+        "resource": "bundled",
+        "path": "/interval/functions.php"
+      }
+    },
+    {
+      "step": "writeFile",
+      "path": "/wordpress/wp-content/themes/interval/theme.json",
+      "data": {
+        "resource": "bundled",
+        "path": "/interval/theme.json"
+      }
+    },
+    {
+      "step": "writeFile",
+      "path": "/wordpress/wp-content/themes/interval/parts/header.html",
+      "data": {
+        "resource": "bundled",
+        "path": "/interval/parts/header.html"
+      }
+    },
+    {
+      "step": "writeFile",
+      "path": "/wordpress/wp-content/themes/interval/parts/footer.html",
+      "data": {
+        "resource": "bundled",
+        "path": "/interval/parts/footer.html"
+      }
+    },
+    {
+      "step": "writeFile",
+      "path": "/wordpress/wp-content/themes/interval/templates/index.html",
+      "data": {
+        "resource": "bundled",
+        "path": "/interval/templates/index.html"
+      }
+    },
+    {
+      "step": "writeFile",
+      "path": "/wordpress/wp-content/themes/interval/templates/front-page.html",
+      "data": {
+        "resource": "bundled",
+        "path": "/interval/templates/front-page.html"
+      }
+    },
+    {
+      "step": "writeFile",
+      "path": "/wordpress/wp-content/themes/interval/assets/hero-route.svg",
+      "data": {
+        "resource": "bundled",
+        "path": "/interval/assets/hero-route.svg"
+      }
+    },
+    {
+      "step": "writeFile",
+      "path": "/wordpress/wp-content/themes/interval/assets/dawn-pack.svg",
+      "data": {
+        "resource": "bundled",
+        "path": "/interval/assets/dawn-pack.svg"
+      }
+    },
+    {
+      "step": "writeFile",
+      "path": "/wordpress/wp-content/themes/interval/assets/night-signal.svg",
+      "data": {
+        "resource": "bundled",
+        "path": "/interval/assets/night-signal.svg"
+      }
+    },
+    {
+      "step": "writeFile",
+      "path": "/wordpress/wp-content/themes/interval/assets/race-system.svg",
+      "data": {
+        "resource": "bundled",
+        "path": "/interval/assets/race-system.svg"
+      }
+    },
+    {
+      "step": "activateTheme",
+      "themeFolderName": "interval"
+    },
+    {
+      "step": "writeFile",
+      "path": "/tmp/interval-products.csv",
+      "data": {
+        "resource": "bundled",
+        "path": "/products.csv"
+      }
+    },
+    {
+      "step": "writeFile",
+      "path": "/tmp/interval-import.php",
+      "data": {
+        "resource": "bundled",
+        "path": "/import-products.php"
+      }
+    },
+    {
+      "step": "runPHP",
+      "code": "<?php require '/tmp/interval-import.php';"
+    },
+    {
+      "step": "login",
+      "username": "admin",
+      "password": "password"
+    }
+  ]
+}
